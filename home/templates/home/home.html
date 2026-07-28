@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="section hero">
+  <div class="container">
+    <p class="eyebrow reveal">$ akax --purpose build</p>
+    <h1 class="reveal" style="margin-top:14px; max-width: 780px;">I build things that solve real problems — not things I experiment with.</h1>
+    <p class="reveal" style="color:var(--text-secondary); font-size:1.15rem; max-width:600px; margin-top:20px;">
+      Software engineer working across Python/Django and modern frontend, with a design instinct shaped by the products I actually admire using.
+    </p>
+    <div class="reveal" style="display:flex; gap:12px; margin-top:32px; flex-wrap:wrap;">
+      <a href="{% url 'blog_list' %}" class="btn btn-primary">Read the blog</a>
+      <a href="{% url 'contact' %}" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Skills</span>
+      <h2 style="margin-top:8px;">What I work with</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px;">
+      {% for skill in featured_skills %}
+        <div class="card reveal">
+          <h3 style="font-size:1.05rem; font-family:'Inter'; font-weight:600;">{{ skill.name }}</h3>
+          <p class="font-mono" style="color:var(--text-tertiary); font-size:0.78rem; margin-top:6px;">{{ skill.get_category_display }}</p>
+          <div style="height:4px; background:var(--surface); border-radius:2px; margin-top:16px; overflow:hidden;">
+            <div style="height:100%; width:{{ skill.proficiency }}%; background:var(--accent); border-radius:2px;"></div>
+          </div>
+        </div>
+      {% empty %}
+        <p style="color:var(--text-secondary);">Skills coming soon — check back after the admin adds some.</p>
+      {% endfor %}
+    </div>
+    <a href="{% url 'skill_list' %}" class="btn btn-ghost btn-sm reveal" style="margin-top:24px; display:inline-flex;">View all skills</a>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Writing</span>
+      <h2 style="margin-top:8px;">Latest from the blog</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:20px;">
+      {% for post in latest_posts %}
+        <a href="{% url 'blog_detail' post.slug %}" class="card reveal">
+          <span class="eyebrow">{{ post.get_category_display }}</span>
+          <h3 style="margin-top:10px;">{{ post.title }}</h3>
+          <p style="color:var(--text-secondary); margin-top:10px; font-size:0.92rem;">{{ post.content|truncatewords:18 }}</p>
+        </a>
+      {% empty %}
+        <p style="color:var(--text-secondary);">No posts yet — first one's coming.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

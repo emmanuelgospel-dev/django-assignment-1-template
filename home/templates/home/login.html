@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Log in — Akax{% endblock %}
+{% block extra_css %}
+<style>
+  .card input[type="text"], .card input[type="password"] {
+    width: 100%; background: var(--bg-elevated); border: 1px solid var(--border);
+    border-radius: 10px; padding: 12px 14px; color: var(--text-primary); font-family: inherit; font-size: 0.95rem;
+  }
+  .card input:focus { outline: none; border-color: var(--accent); }
+</style>
+{% endblock %}
+{% block content %}
+<section class="section" style="max-width:420px; margin:0 auto;">
+  <div class="container">
+    <h2>Log in</h2>
+    <p style="color:var(--text-secondary); margin-top:8px; margin-bottom:28px;">Admin access to manage blog posts.</p>
+    <form method="post" class="card">
+      {% csrf_token %}
+      <div class="form-group">
+        <label class="form-label" for="id_username">Username</label>
+        {{ form.username }}
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="id_password">Password</label>
+        {{ form.password }}
+      </div>
+      {% if form.errors %}
+        <p class="form-errors">Invalid username or password.</p>
+      {% endif %}
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:8px;">Log in</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

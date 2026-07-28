@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog — Akax{% endblock %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'css/blog.css' %}">{% endblock %}
+
+{% block content %}
+<section class="section">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:16px;" class="reveal">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow">Writing</span>
+        <h1 style="margin-top:8px; font-size:2.5rem;">Blog</h1>
+        <p>Notes on building, shipping, and the design decisions in between.</p>
+      </div>
+      {% if user.is_authenticated %}
+        <a href="{% url 'blog_create' %}" class="btn btn-primary">New post</a>
+      {% endif %}
+    </div>
+
+    <div class="blog-tabs reveal" id="blogTabs">
+      <button class="blog-tab active" data-category="">All</button>
+      {% for value, label in categories %}
+        <button class="blog-tab" data-category="{{ value }}">{{ label }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="blog-grid">
+      {% for post in posts %}
+        <a href="{% url 'blog_detail' post.slug %}" class="card blog-card reveal" data-category="{{ post.category }}">
+          <span class="eyebrow">{{ post.get_category_display }}</span>
+          <h3 style="margin-top:10px;">{{ post.title }}</h3>
+          <p style="color:var(--text-secondary); margin-top:10px; font-size:0.92rem;">{{ post.content|truncatewords:20 }}</p>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px;">
+            <span class="font-mono" style="font-size:0.75rem; color:var(--text-tertiary);">{{ post.created_at|date:"M d, Y" }}</span>
+            <span class="font-mono" style="font-size:0.75rem; color:var(--text-tertiary);">{{ post.views_count }} views</span>
+          </div>
+        </a>
+      {% empty %}
+        <p style="color:var(--text-secondary);">No posts yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}<script src="{% static 'js/blog.js' %}"></script>{% endblock %}

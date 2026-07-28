@@ -1,0 +1,30 @@
+.blog-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 32px 0 28px;
+  flex-wrap: wrap;
+}
+.blog-tab {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.blog-tab:hover { color: var(--text-primary); }
+.blog-tab.active { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.blog-card.blog-hidden { display: none; }
+
+.blog-detail-header { max-width: 720px; margin: 0 auto; }
+.blog-detail-body { max-width: 720px; margin: 32px auto 0; font-size: 1.05rem; line-height: 1.8; color: var(--text-primary); white-space: pre-wrap; }
+.blog-actions { display: flex; gap: 10px; margin-top: 28px; max-width: 720px; margin-left: auto; margin-right: auto; }
