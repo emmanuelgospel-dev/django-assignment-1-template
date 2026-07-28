@@ -8,36 +8,6 @@ A Django portfolio site — Homepage, Skills, Blog (full CRUD), and Contact.
 - Vanilla JS + hand-rolled CSS (no frontend framework)
 - Google Fonts: Inter, Playfair Display, IBM Plex Mono
 
-## Setup
-
-```bash
-# 1. Create and activate a virtual environment
-python -m venv venv
-venv\Scripts\activate        # Windows
-source venv/bin/activate     # macOS/Linux
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Run migrations (already applied in this handoff, but harmless to re-run)
-python manage.py migrate
-
-# 4. Create your own superuser (a demo one already exists — see below)
-python manage.py createsuperuser
-
-# 5. (Optional) Seed sample skills + blog posts
-python manage.py seed_data
-
-# 6. Run the dev server
-python manage.py runserver
-```
-
-Visit `http://127.0.0.1:8000/`.
-
-## Demo admin login (already seeded in db.sqlite3)
-- Username: `akax`
-- Password: `akaxadmin123`
-
 **Change this password or delete the user before deploying anywhere public.**
 
 ## Pages
