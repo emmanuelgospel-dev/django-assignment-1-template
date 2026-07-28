@@ -8,8 +8,6 @@ A Django portfolio site — Homepage, Skills, Blog (full CRUD), and Contact.
 - Vanilla JS + hand-rolled CSS (no frontend framework)
 - Google Fonts: Inter, Playfair Display, IBM Plex Mono
 
-**Change this password or delete the user before deploying anywhere public.**
-
 ## Pages
 | URL | Page | Auth |
 |-----|------|------|
