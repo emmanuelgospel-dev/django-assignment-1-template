@@ -87,111 +87,53 @@ class Command(BaseCommand):
         posts = [
 
             {
-                "title": 'I Stopped Asking "Can I Build It?" and Started Asking "Should I?"',
+                "title": "Why I Build Things That Solve Real Problems",
                 "category": "product",
-                "content": """When I started learning software development, I thought good projects were the ones with the most features.
+                "content": """Most people build projects to learn.
 
-The more complicated the app, the more impressive it looked.
+I build projects to solve problems.
 
-Lately, my thinking has changed.
+Every portfolio project I create starts with a real frustration I experienced or observed.
 
-I've started caring less about building everything and more about solving one real problem well.
+That changes everything.
 
-That mindset became even clearer while working on a healthcare coordination project.
+Instead of chasing technologies, I focus on building products people can actually use.
 
-We realised people don't just need the nearest hospital.
+The code is important.
 
-They need the nearest hospital that can actually treat them.
-
-That single observation changed the direction of the project.
-
-It reminded me that software isn't valuable because it's complex.
-
-It's valuable because it helps someone.
-
-These days, before I start building anything, I try to ask myself one question.
-
-If this didn't exist tomorrow, who would actually miss it?
-
-If I can't answer that, then maybe I should keep thinking before I start coding.
-
-I'd rather build fewer projects that matter than a hundred that don't.
+But solving the right problem matters even more.
 """
             },
 
             {
-                "title": "Designing With Intention Instead of Decoration",
+                "title": "Designing with Intention",
                 "category": "design",
-                "content": """When I first started designing websites, I loved making things look impressive.
+                "content": """Good design isn't decoration.
 
-More shadows.
-More gradients.
-More animations.
+It's communication.
 
-If a design looked busy, I felt like I had done a good job.
+Every spacing decision, font size, animation and colour should have a reason.
 
-The funny thing is, I already knew the principle that less is more. I came from a graphic design background, so it wasn't a new idea. But knowing a principle and actually applying it are two different things.
+Minimal interfaces aren't empty because they're trendy.
 
-Building this portfolio reminded me of that.
+They're minimal because they remove distractions and help people focus on what matters.
 
-Every time I wanted to add another effect, I stopped and asked myself one question.
+Less isn't boring.
 
-Does this make the experience better, or am I decorating it because I can?
-
-Most times, the answer was the second one.
-
-So I removed things.
-
-I kept one accent color.
-
-I gave the content room to breathe.
-
-I paid more attention to spacing than special effects.
-
-The goal stopped being to impress people.
-
-The goal became helping people focus on what matters.
-
-Good design isn't about how much you can add.
-
-It's about knowing what deserves to stay.
+Less is intentional.
 """
             },
 
             {
-                "title": "I Finally Understood Why Django Uses ForeignKey for Users",
+                "title": "Understanding Django Ownership Patterns",
                 "category": "engineering",
-                "content": """One thing that kept confusing me while learning Django was this:
+                "content": """One of the biggest lessons I learnt in Django was ownership.
 
-Why do tutorials always connect things like posts and tasks to the User model using a ForeignKey?
+Instead of every user editing every object, each object belongs to someone.
 
-Why not just save the username?
+Using ForeignKey relationships with Django's User model makes permissions much easier to manage.
 
-At first, both approaches looked the same to me.
-
-Then it finally clicked.
-
-A username is just text.
-
-A User object is an actual person inside your application.
-
-If I save the username and someone changes it later, that relationship starts falling apart.
-
-But when I connect a blog post to the User model with a ForeignKey, Django keeps that ownership intact even if the username or email changes.
-
-That's when I stopped seeing ForeignKey as just another thing to memorize.
-
-It's about relationships.
-
-Ownership.
-
-Keeping your data connected the right way.
-
-That small lesson changed how I look at database design, and now I find myself asking a different question whenever I build something:
-
-What should this belong to?
-
-Sometimes understanding the reason behind the code is worth more than memorizing the syntax.
+It's a simple concept that scales surprisingly well.
 """
             },
 
