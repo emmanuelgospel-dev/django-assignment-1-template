@@ -11,7 +11,7 @@ class BlogPost(models.Model):
     ]
 
     title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True, blank=True)
+    slug = models.SlugField(unique=True, blank=True, max_length=225)
     content = models.TextField()
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     thumbnail = models.ImageField(upload_to='blog/', blank=True, null=True)
